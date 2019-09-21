@@ -1,26 +1,72 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import data from './data.json'
 
-function App() {
+/*function Helloworld(props) { //props en realidad es un objeto de llave valor
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="hello">
+      <h3>{props.subtitile}</h3>
+      {props.mytext}
+    </div> 
+  );
+}*/
+
+/*class Helloworld extends React.Component {
+  
+  state = {
+    show: true
+  }
+
+  toggleShow = () => {
+    this.setState({show: !this.state.show})
+  }
+  
+  render() {
+    if (this.state.show){
+      return(
+        <div id="hello">
+          <h3>{this.props.subtitile}</h3>
+          {this.props.mytext}
+          <button onClick={this.toggleShow}>Apagame</button>
+        </div>
+      )
+    }
+    else{
+      return(
+        <div>
+          <h3>No hay nada.</h3>
+          <button onClick={this.toggleShow}>Enciendeme</button>
+        </div>
+      )
+    }
+    
+  }
+}*/
+
+//const App = () => <div>This is my componenet: <Helloworld/> </div>
+
+class App extends React.Component {
+
+  state = {
+    data: data
+  }
+
+  render() {
+    return <div>
+      {this.state.data.map(e => <p> <h1>{e.titulo}</h1> <h2>{e.description}</h2> </p>)}
+    </div>
+  }
+}
+
+/*function App() {
+  return (
+    <div>
+      This is my componenet: 
+      <Helloworld mytext="Hello Fazt" subtitile="expecto patronum"/> 
+      <Helloworld mytext="Hello Williams" subtitile="clase"/> 
+      <Helloworld mytext="Hola Mundo" subtitile="España"/> 
     </div>
   );
-}
+}*/
 
 export default App;
