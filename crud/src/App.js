@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import data from './data.json'
+import Pelis from './components/peliculas.js'
 
 /*function Helloworld(props) { //props en realidad es un objeto de llave valor
   return (
@@ -52,9 +53,7 @@ class App extends React.Component {
   }
 
   render() {
-    return <div>
-      {this.state.data.map(e => <p> <h1>{e.titulo}</h1> <h2>{e.description}</h2> </p>)}
-    </div>
+    return <div ><Pelis data={this.state.data}/></div>
   }
 }
 

@@ -1,30 +1,42 @@
 [
     {
         "id": 0,
-        "titulo" : "titulo 1",
-        "description" : "descripcao",
-        "imagen" : "Cumple",
+        "titulo" : "Kung Fu Panda",
+        "description" : "La historia se desarrolla en el Valle de la Paz, un lugar ficticio de la Antigua China habitado por animales antropomorfos.",
+        "director" : "Mark Osborne",
+        "produccion" : "DreamWorks Animation",
+        "duracion" : "92 minutos",
+        "imagen" : "Cumple.png",
         "done" : false
     },
     {
         "id": 1,
-        "titulo" : "titulo 2",
-        "description" : "descripcao",
-        "imagen" : "Cumple",
+        "titulo" : "El Conjuro 2",
+        "description" : "6 años después de los terroríficos eventos de The Conjuring La película comienza en Amityville, Nueva York, donde Ed y Lorraine Warren trabajan intentando solucionar un caso.",
+        "director" : "James Wan",
+        "produccion" : "The Safran Company",
+        "duracion" : "134 minutos",
+        "imagen" : "Cumple.png",
         "done" : false
     },
     {
         "id": 2,
-        "titulo" : "titulo 3",
-        "description" : "descripcao",
-        "imagen" : "Cumple",
+        "titulo" : "El Justiciero",
+        "description" : "Robert McCall es un agente del gobierno jubilado que vive en Boston, Massachusetts. Trabaja en una ferretería Home Mart, donde se hace amigo de muchos de sus compañeros de trabajo e intenta ayudar a un aprendiz de guardia de seguridad llamado Ralphie a pasar su examen de calificación.",
+        "director" : "Antoine Fuqua",
+        "produccion" : "Village Roadshow Pictures",
+        "duracion" : "132 minutos",
+        "imagen" : "Cumple.png",
         "done" : false
     },
     {
         "id": 3,
-        "titulo" : "titulo 4",
-        "description" : "descripcao",
-        "imagen" : "Cumple",
+        "titulo" : "Avengers: Infinity War",
+        "description" : "La historia se desarrolla en el Valle de la Paz, un lugar ficticio de la Antigua China habitado por animales antropomorfos.",
+        "director" : "Anthony Russo y Joe Russo",
+        "produccion" : "Marvel Studios",
+        "duracion" : "150 minutos",
+        "imagen" : "Cumple.png",
         "done" : false
     }
 ]
