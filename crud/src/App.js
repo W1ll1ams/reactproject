@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import data from './data.json'
 import Pelis from './components/peliculas.js'
+import Lista from './components/lista.js'
 
 /*function Helloworld(props) { //props en realidad es un objeto de llave valor
   return (
@@ -47,13 +48,13 @@ import Pelis from './components/peliculas.js'
 //const App = () => <div>This is my componenet: <Helloworld/> </div>
 
 class App extends React.Component {
-
   state = {
     data: data
   }
 
   render() {
-    return <div ><Pelis data={this.state.data}/></div>
+    return <div ><Lista data={this.state.data}/></div>
+    /*return <div ><Pelis data={this.state.data}/></div>*/
   }
 }
 

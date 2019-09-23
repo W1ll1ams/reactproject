@@ -16,7 +16,7 @@
         "director" : "James Wan",
         "produccion" : "The Safran Company",
         "duracion" : "134 minutos",
-        "imagen" : "Cumple.png",
+        "imagen" : "Imagen1.jpg",
         "done" : false
     },
     {
@@ -26,7 +26,7 @@
         "director" : "Antoine Fuqua",
         "produccion" : "Village Roadshow Pictures",
         "duracion" : "132 minutos",
-        "imagen" : "Cumple.png",
+        "imagen" : "Imagen2.jpg",
         "done" : false
     },
     {
@@ -36,7 +36,7 @@
         "director" : "Anthony Russo y Joe Russo",
         "produccion" : "Marvel Studios",
         "duracion" : "150 minutos",
-        "imagen" : "Cumple.png",
+        "imagen" : "Imagen3.jpg",
         "done" : false
     }
 ]
