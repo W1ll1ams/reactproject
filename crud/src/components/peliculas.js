@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+/*import React, {Component} from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -6,7 +6,7 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
-class Peliculas extends Component{
+/*class Peliculas extends Component{
     render(){
         return this.props.data.map(e => <p  id="hello"> <h1>{e.titulo}</h1> {e.description} <br />
             <b>Director:</b> {e.director} <br />
@@ -44,4 +44,4 @@ class Movies extends Component{
     }
 }
 
-export default Movies;
+export default Movies;*/

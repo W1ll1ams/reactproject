@@ -4,6 +4,11 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import Fab from '@material-ui/core/Fab';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+import NavigationIcon from '@material-ui/icons/Navigation';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,13 +21,21 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     width: 256,
-    height: 256,
+    height: 300,
   },
   img: {
     margin: 'auto',
     display: 'block',
-    maxWidth: '100%',
-    maxHeight: '100%',
+    maxWidth: 256,
+    maxHeight: 300,
+    minWidth: 256,
+    minHeight: 300,
+  },
+  fab: {
+    margin: theme.spacing(1),
+  },
+  extendedIcon: {
+    marginRight: theme.spacing(1),
   },
 }));
 
@@ -30,7 +43,7 @@ export default function ComplexGrid(props) {
   const classes = useStyles();
 
   return props.data.map(e =>
-    <div className={classes.root}>
+    <div className={classes.root} key={e.id}>
       <Paper id="hello" className={classes.paper}>
         <Grid id="txt" container spacing={2}>
           <Grid item xs={12} sm container>
@@ -47,11 +60,27 @@ export default function ComplexGrid(props) {
                 <b>Producción:</b> {e.produccion} <br />
                 <b>Duración:</b> {e.duracion}
                 </Typography>
+                <div>
+                  <Fab id="edit" aria-label="edit" className={classes.fab}>
+                    <EditIcon />
+                  </Fab>
+                  <Fab id="del" aria-label="delete" className={classes.fab}>
+                    <DeleteIcon />
+                  </Fab>
+                </div>
               </Grid>
+            </Grid>
+            <Grid item>
+              <Typography variant="subtitle1">
+                <Fab variant="extended" aria-label="delete" className={classes.fab}>
+                  <NavigationIcon className={classes.extendedIcon} />
+                  Ver
+                </Fab>
+              </Typography>
             </Grid>
           </Grid>
           <Grid item>
-            <ButtonBase className={classes.image}>
+            <ButtonBase id="imagen" className={classes.image}>
               <img className={classes.img} alt="complex" src={require(`../${e.imagen}`)} />
             </ButtonBase>
           </Grid>

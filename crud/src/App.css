@@ -5,8 +5,16 @@
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-shadow: 2px 1px black;
- }
- #imagen {
+}
+#imagen {
   background: rgb(255, 255, 255);
-  border: 1px green;
+  box-shadow: 3px 2px black;
+}
+#edit {
+  color: white;
+  background: rgb(0, 94, 5);
+}
+#del {
+  color: white;
+  background: rgb(100, 0, 0);
 }

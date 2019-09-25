@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import data from './data.json'
-import Pelis from './components/peliculas.js'
 import Lista from './components/lista.js'
+import Add from './components/agregar.js'
 
 /*function Helloworld(props) { //props en realidad es un objeto de llave valor
   return (
@@ -48,12 +48,22 @@ import Lista from './components/lista.js'
 //const App = () => <div>This is my componenet: <Helloworld/> </div>
 
 class App extends React.Component {
-  state = {
-    data: data
+  constructor(){
+    super();
+    localStorage.setItem('data', JSON.stringify(data));
+    this.state={data:JSON.parse(this.getData())}
+  }
+
+  componentDidUpdate(){
+    console.log(this.state);
+  }
+
+  getData() {
+    return localStorage.getItem('data');
   }
 
   render() {
-    return <div ><Lista data={this.state.data}/></div>
+    return <div><Add /><Lista data={this.state.data}/></div>
     /*return <div ><Pelis data={this.state.data}/></div>*/
   }
 }
