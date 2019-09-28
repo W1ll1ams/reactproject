@@ -3,6 +3,7 @@ import './App.css';
 import data from './data.json'
 import Lista from './components/lista.js'
 import Add from './components/agregar.js'
+import Crear from './components/crear.js'
 
 /*function Helloworld(props) { //props en realidad es un objeto de llave valor
   return (
@@ -51,19 +52,30 @@ class App extends React.Component {
   constructor(){
     super();
     localStorage.setItem('data', JSON.stringify(data));
-    this.state={data:JSON.parse(this.getData())}
-  }
-
-  componentDidUpdate(){
-    console.log(this.state);
+    this.state={data:JSON.parse(this.getData()),show:0};
+    //this.add=this.add.bind(this); use state
   }
 
   getData() {
     return localStorage.getItem('data');
   }
 
+  add = () => {
+    this.setState({show: 1});
+  }
+  
+  cr = (nombre, descripcion, director, produccion, duracion) => {
+    this.setState({show: 0});
+  }
+
   render() {
-    return <div><Add /><Lista data={this.state.data}/></div>
+    if (this.state.show === 0){
+      return <div><Add accion={this.add} /><Lista data={this.state.data}/></div>
+    }
+    else if (this.state.show === 1){
+      return <div><Crear accion={this.cr}/></div>
+    }
+    
     /*return <div ><Pelis data={this.state.data}/></div>*/
   }
 }

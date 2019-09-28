@@ -50,7 +50,7 @@ export default function ComplexGrid(props) {
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
                 <Typography gutterBottom variant="subtitle1">
-                {e.titulo}
+                <h1>{e.titulo}</h1>
                 </Typography>
                 <Typography variant="body2" gutterBottom>
                 {e.description}

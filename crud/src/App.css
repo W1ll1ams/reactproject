@@ -1,6 +1,9 @@
 #hello {
   background: rgb(39, 38, 38);
 }
+#cr {
+  background: rgb(53, 52, 52);
+}
 #txt {
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
