@@ -37,6 +37,9 @@ const useStyles = makeStyles(theme => ({
   extendedIcon: {
     marginRight: theme.spacing(1),
   },
+  nav:{
+    justifyContent: "flex-end",
+  },
 }));
 
 export default function ComplexGrid(props) {

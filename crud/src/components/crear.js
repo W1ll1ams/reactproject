@@ -91,7 +91,7 @@ export default function ComplexGrid(props) {
                 />
             </Grid>
             <Grid container spacing={2} className= {classes.nav}>
-                <Button variant="contained" color="primary" className={classes.button} onClick={props.accion }>
+                <Button variant="contained" color="primary" className={classes.button} onClick={props.accion}>
                     Crear
                 </Button>
             </Grid>

@@ -60,6 +60,10 @@ class App extends React.Component {
     return localStorage.getItem('data');
   }
 
+  ver = () => {
+    this.setState({show: 2});
+  }
+
   add = () => {
     this.setState({show: 1});
   }
@@ -70,9 +74,12 @@ class App extends React.Component {
 
   render() {
     if (this.state.show === 0){
-      return <div><Add accion={this.add} /><Lista data={this.state.data}/></div>
+      return <div><Add accion={this.add} /><Lista data={this.state.data} ver={this.ver} /></div>
     }
     else if (this.state.show === 1){
+      return <div><Crear accion={this.cr}/></div>
+    }
+    else if (this.state.show === 2){
       return <div><Crear accion={this.cr}/></div>
     }
     
