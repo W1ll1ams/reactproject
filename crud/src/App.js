@@ -53,34 +53,52 @@ class App extends React.Component {
     super();
     localStorage.setItem('data', JSON.stringify(data));
     this.state={data:JSON.parse(this.getData()),show:0};
-    //this.add=this.add.bind(this); use state
+  }
+
+  pelicula = {
+    id: "",
+    titulo : "",
+    description : "",
+    director : "",
+    produccion : "",
+    duracion : "",
+    imagen : "",
+    done : false
   }
 
   getData() {
     return localStorage.getItem('data');
   }
 
-  ver = () => {
-    this.setState({show: 2});
+  cr = () => {
+    this.setState({show: 0});
   }
 
   add = () => {
     this.setState({show: 1});
   }
+
+  mod = (p) => {
+    this.setState({show: 2});
+  }
+
+  ver = () => {
+    this.setState({show: 3});
+  }
   
-  cr = (nombre, descripcion, director, produccion, duracion) => {
-    this.setState({show: 0});
+  change = (e) => {
+    console.log(e);
   }
 
   render() {
     if (this.state.show === 0){
-      return <div><Add accion={this.add} /><Lista data={this.state.data} ver={this.ver} /></div>
+      return <div><Add accion={this.add} /><Lista data={this.state.data} mod={this.mod} ver={this.ver} /></div>
     }
     else if (this.state.show === 1){
-      return <div><Crear accion={this.cr}/></div>
+      return <div><Crear accion={this.cr} cm="Crear" change={this.change} pelicula={this.pelicula} /></div>
     }
     else if (this.state.show === 2){
-      return <div><Crear accion={this.cr}/></div>
+      return <div><Crear accion={this.cr} cm="Modificar" change={this.change} pelicula={this.pelicula}/></div>
     }
     
     /*return <div ><Pelis data={this.state.data}/></div>*/

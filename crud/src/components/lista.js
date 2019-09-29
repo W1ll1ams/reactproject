@@ -61,7 +61,7 @@ export default function ComplexGrid(props) {
                 <b>Duración:</b> {e.duracion}
                 </Typography>
                 <div>
-                  <Fab id="edit" aria-label="edit" className={classes.fab}>
+                  <Fab onClick={props.mod} id="edit" aria-label="edit" className={classes.fab}>
                     <EditIcon />
                   </Fab>
                   <Fab id="del" aria-label="delete" className={classes.fab}>

@@ -47,6 +47,8 @@ export default function ComplexGrid(props) {
                     margin="normal"
                     variant="outlined"
                     name="nombre"
+                    onChange={props.change()}
+                    defaultValue = {props.pelicula.titulo}
                 />
             </Grid>
             <Grid container spacing={2}>
@@ -92,7 +94,7 @@ export default function ComplexGrid(props) {
             </Grid>
             <Grid container spacing={2} className= {classes.nav}>
                 <Button variant="contained" color="primary" className={classes.button} onClick={props.accion}>
-                    Crear
+                    {props.cm}
                 </Button>
             </Grid>
         </Grid>
