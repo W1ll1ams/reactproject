@@ -37,9 +37,6 @@ const useStyles = makeStyles(theme => ({
   extendedIcon: {
     marginRight: theme.spacing(1),
   },
-  nav:{
-    justifyContent: "flex-end",
-  },
 }));
 
 export default function ComplexGrid(props) {
@@ -52,8 +49,8 @@ export default function ComplexGrid(props) {
           <Grid item xs={12} sm container>
             <Grid item xs container direction="column" spacing={2}>
               <Grid item xs>
-                <Typography gutterBottom variant="subtitle1">
-                <h1>{e.titulo}</h1>
+                <Typography gutterBottom variant="h4">
+                {e.titulo}
                 </Typography>
                 <Typography variant="body2" gutterBottom>
                 {e.description}
@@ -64,10 +61,10 @@ export default function ComplexGrid(props) {
                 <b>Duración:</b> {e.duracion}
                 </Typography>
                 <div>
-                  <Fab id="edit" aria-label="edit" className={classes.fab}>
+                  <Fab onClick={() => props.mod(e.id)} id="edit" aria-label="edit" className={classes.fab}>
                     <EditIcon />
                   </Fab>
-                  <Fab id="del" aria-label="delete" className={classes.fab}>
+                  <Fab onClick={() => props.del(e.id)} id="del" aria-label="delete" className={classes.fab}>
                     <DeleteIcon />
                   </Fab>
                 </div>
@@ -75,7 +72,7 @@ export default function ComplexGrid(props) {
             </Grid>
             <Grid item>
               <Typography variant="subtitle1">
-                <Fab onClick={props.ver} variant="extended" aria-label="delete" className={classes.fab}>
+                <Fab onClick={() => props.ver(e.id)} variant="extended" aria-label="delete" className={classes.fab}>
                   <NavigationIcon className={classes.extendedIcon} />
                   Ver
                 </Fab>
