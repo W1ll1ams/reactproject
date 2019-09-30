@@ -4,11 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
-import Fab from '@material-ui/core/Fab';
-import EditIcon from '@material-ui/icons/Edit';
-import DeleteIcon from '@material-ui/icons/Delete';
-import NavigationIcon from '@material-ui/icons/Navigation';
-
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,25 +13,28 @@ const useStyles = makeStyles(theme => ({
   paper: {
     padding: theme.spacing(2),
     margin: 'auto',
-    maxWidth: '100%',
+    maxWidth: '60%',
   },
   image: {
-    width: 256,
-    height: 300,
+    width: 356,
+    height: 400,
   },
   img: {
     margin: 'auto',
     display: 'block',
-    maxWidth: 256,
-    maxHeight: 300,
-    minWidth: 256,
-    minHeight: 300,
+    maxWidth: 356,
+    maxHeight: 400,
+    minWidth: 356,
+    minHeight: 400,
   },
   fab: {
     margin: theme.spacing(1),
   },
   extendedIcon: {
     marginRight: theme.spacing(1),
+  },
+  nav:{
+    justifyContent: "center",
   },
 }));
 
@@ -45,10 +44,13 @@ export default function ComplexGrid(props) {
   return props.data.map(e =>
     <div className={classes.root} key={e.id}>
       <Paper id="hello" className={classes.paper}>
+      <Grid container className= {classes.nav}>
+        <ButtonBase id="imagen" className={classes.image}>
+          <img className={classes.img} alt="complex" src={require(`../${e.imagen}`)} />
+        </ButtonBase>
+      </Grid>
         <Grid id="txt" container spacing={2}>
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
-              <Grid item xs>
+              <Grid container item className= {classes.nav}>
                 <Typography gutterBottom variant="h4">
                 {e.titulo}
                 </Typography>
@@ -60,30 +62,12 @@ export default function ComplexGrid(props) {
                 <b>Producción:</b> {e.produccion} <br />
                 <b>Duración:</b> {e.duracion}
                 </Typography>
-                <div>
-                  <Fab onClick={() => props.mod(e.id)} id="edit" aria-label="edit" className={classes.fab}>
-                    <EditIcon />
-                  </Fab>
-                  <Fab onClick={() => props.del(e.id)} id="del" aria-label="delete" className={classes.fab}>
-                    <DeleteIcon />
-                  </Fab>
-                </div>
               </Grid>
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle1">
-                <Fab onClick={() => props.ver(e.id)} variant="extended" aria-label="delete" className={classes.fab}>
-                  <NavigationIcon className={classes.extendedIcon} />
-                  Ver
-                </Fab>
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid item>
-            <ButtonBase id="imagen" className={classes.image}>
-              <img className={classes.img} alt="complex" src={require(`../${e.imagen}`)} />
-            </ButtonBase>
-          </Grid>
+              <Grid container item spacing={2} className= {classes.nav}>
+                  <Button variant="contained" color="primary" className={classes.button} onClick={props.regresar}>
+                      Regresar
+                  </Button>
+              </Grid>
         </Grid>
       </Paper>
       <br />

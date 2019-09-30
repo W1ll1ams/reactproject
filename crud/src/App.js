@@ -165,7 +165,7 @@ class App extends React.Component {
       return <div><Crear accion={() => this.cr(0)} cancelar={this.cancel} cm={["Modificar","Modificación"]} change={this.change} pelicula={pelicula}/></div>
     }
     else if (this.state.show === 3){
-      return <div><Ver data={[pelicula]} mod={this.mod} del={this.del} ver={this.ver}/></div>
+      return <div><Ver data={[pelicula]} regresar={this.cancel}/></div>
     }
     
     /*return <div ><Pelis data={this.state.data}/></div>*/
