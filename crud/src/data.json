@@ -6,7 +6,7 @@
         "director" : "Mark Osborne",
         "produccion" : "DreamWorks Animation",
         "duracion" : "92 minutos",
-        "imagen" : "Cumple.png",
+        "imagen" : "https://images-na.ssl-images-amazon.com/images/I/51XhnMdSQdL.jpg",
         "done" : false
     },
     {
@@ -16,7 +16,7 @@
         "director" : "James Wan",
         "produccion" : "The Safran Company",
         "duracion" : "134 minutos",
-        "imagen" : "Imagen1.jpg",
+        "imagen" : "https://s3.amazonaws.com/tandas/file_5b88bd200cc1c.jpg",
         "done" : false
     },
     {
@@ -26,7 +26,7 @@
         "director" : "Antoine Fuqua",
         "produccion" : "Village Roadshow Pictures",
         "duracion" : "132 minutos",
-        "imagen" : "Imagen2.jpg",
+        "imagen" : "https://i.pinimg.com/474x/3b/b9/5c/3bb95ce9ae495ca4044b612099cc828a--denzel-washington-audio.jpg",
         "done" : false
     },
     {
@@ -36,7 +36,7 @@
         "director" : "Anthony Russo y Joe Russo",
         "produccion" : "Marvel Studios",
         "duracion" : "150 minutos",
-        "imagen" : "Imagen3.jpg",
+        "imagen" : "https://images-na.ssl-images-amazon.com/images/I/811xdZfsUqL._SY741_.jpg",
         "done" : false
     }
 ]

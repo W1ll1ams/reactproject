@@ -46,7 +46,7 @@ export default function ComplexGrid(props) {
       <Paper id="hello" className={classes.paper}>
       <Grid container className= {classes.nav}>
         <ButtonBase id="imagen" className={classes.image}>
-          <img className={classes.img} alt="complex" src={require(`../${e.imagen}`)} />
+          <img className={classes.img} alt="complex" src={e.imagen} />
         </ButtonBase>
       </Grid>
         <Grid id="txt" container spacing={2}>

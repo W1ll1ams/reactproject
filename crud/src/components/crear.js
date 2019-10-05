@@ -101,6 +101,18 @@ export default function ComplexGrid(props) {
                             defaultValue = {props.pelicula.duracion}
                         />
                     </Grid>
+                    <Grid container spacing={2}>
+                        <TextField
+                            id="outlined-name"
+                            label="URL Imagen"
+                            className={classes.textField}
+                            margin="normal"
+                            variant="outlined"
+                            name="imagen"
+                            onChange={props.change('imagen')}
+                            defaultValue = {props.pelicula.imagen}
+                        />
+                    </Grid>
                     <Grid container spacing={2} className= {classes.nav}>
                         <Button variant="contained" color="primary" className={classes.button} onClick={props.accion}>
                             {props.cm[0]}
