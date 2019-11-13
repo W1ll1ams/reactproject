@@ -5,49 +5,7 @@ import Lista from './components/lista.js'
 import Add from './components/agregar.js'
 import Crear from './components/crear.js'
 import Ver from './components/ver.js'
-
-/*function Helloworld(props) { //props en realidad es un objeto de llave valor
-  return (
-    <div id="hello">
-      <h3>{props.subtitile}</h3>
-      {props.mytext}
-    </div> 
-  );
-}*/
-
-/*class Helloworld extends React.Component {
-  
-  state = {
-    show: true
-  }
-
-  toggleShow = () => {
-    this.setState({show: !this.state.show})
-  }
-  
-  render() {
-    if (this.state.show){
-      return(
-        <div id="hello">
-          <h3>{this.props.subtitile}</h3>
-          {this.props.mytext}
-          <button onClick={this.toggleShow}>Apagame</button>
-        </div>
-      )
-    }
-    else{
-      return(
-        <div>
-          <h3>No hay nada.</h3>
-          <button onClick={this.toggleShow}>Enciendeme</button>
-        </div>
-      )
-    }
-    
-  }
-}*/
-
-//const App = () => <div>This is my componenet: <Helloworld/> </div>
+import axios from 'axios'
 
 var pelicula = {
   id: "",
@@ -61,19 +19,35 @@ var pelicula = {
 };
 
 var x = 4;
-
+var datos = [];
 class App extends React.Component {
   constructor(){
     super();
-    localStorage.setItem('data', JSON.stringify(data));
+    //localStorage.setItem('data', JSON.stringify(data));
+
     this.state={
-      data:JSON.parse(this.getData()),
+      data:datos,
       show:0
     };
+    
   }
+  
+    componentDidMount(){
+      return this.getData().then(res => {
+        console.log(res);
+        return this.setState({data: res.data});
+      })
+    }
 
   getData() {
-    return localStorage.getItem('data');
+
+    return axios.get('http://localhost:4000/api/v1/peliculas/')
+      .then(function (response) {
+        return response;
+      })
+      .catch(function (error) {
+        return error;
+      });
   }
 
   cr = (op) => {
@@ -100,7 +74,7 @@ class App extends React.Component {
     }
 
     localStorage.setItem('data',JSON.stringify(dataPelicula));
-    this.setState({...this.state, data: JSON.parse(this.getData())});
+    this.setState({...this.state, data: this.getData()});
   }
 
   addPelicula(prmData){
@@ -110,7 +84,7 @@ class App extends React.Component {
     dataPelicula.push(prmData);
 
     localStorage.setItem('data',JSON.stringify(dataPelicula));
-    this.setState({...this.state, data: JSON.parse(this.getData())});
+    //this.setState({...this.state, data: JSON.parse(this.getData())});
   }
 
   add = () => {
