@@ -43,7 +43,7 @@ export default function ComplexGrid(props) {
   const classes = useStyles();
 
   return props.data.map(e =>
-    <div className={classes.root} key={e.id}>
+    <div className={classes.root} key={e._id}>
       <Paper id="hello" className={classes.paper}>
         <Grid id="txt" container spacing={2}>
           <Grid item xs={12} sm container>
@@ -61,10 +61,10 @@ export default function ComplexGrid(props) {
                 <b>Duración:</b> {e.duracion}
                 </Typography>
                 <div>
-                  <Fab onClick={() => props.mod(e.id)} id="edit" aria-label="edit" className={classes.fab}>
+                  <Fab onClick={() => props.mod(e._id)} id="edit" aria-label="edit" className={classes.fab}>
                     <EditIcon />
                   </Fab>
-                  <Fab onClick={() => props.del(e.id)} id="del" aria-label="delete" className={classes.fab}>
+                  <Fab onClick={() => props.del(e._id)} id="del" aria-label="delete" className={classes.fab}>
                     <DeleteIcon />
                   </Fab>
                 </div>
@@ -72,7 +72,7 @@ export default function ComplexGrid(props) {
             </Grid>
             <Grid item>
               <Typography variant="subtitle1">
-                <Fab onClick={() => props.ver(e.id)} variant="extended" aria-label="delete" className={classes.fab}>
+                <Fab onClick={() => props.ver(e._id)} variant="extended" aria-label="delete" className={classes.fab}>
                   <NavigationIcon className={classes.extendedIcon} />
                   Ver
                 </Fab>

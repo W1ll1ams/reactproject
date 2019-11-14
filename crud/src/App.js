@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import data from './data.json'
 import Lista from './components/lista.js'
 import Add from './components/agregar.js'
 import Crear from './components/crear.js'
@@ -23,24 +22,19 @@ var datos = [];
 class App extends React.Component {
   constructor(){
     super();
-    //localStorage.setItem('data', JSON.stringify(data));
-
     this.state={
       data:datos,
       show:0
     };
-    
   }
-  
-    componentDidMount(){
-      return this.getData().then(res => {
-        console.log(res);
-        return this.setState({data: res.data});
-      })
-    }
+
+  componentDidMount(){
+    return this.getData().then(res => {
+      return this.setState({data: res.data});
+    })
+  }
 
   getData() {
-
     return axios.get('http://localhost:4000/api/v1/peliculas/')
       .then(function (response) {
         return response;
@@ -84,7 +78,6 @@ class App extends React.Component {
     dataPelicula.push(prmData);
 
     localStorage.setItem('data',JSON.stringify(dataPelicula));
-    //this.setState({...this.state, data: JSON.parse(this.getData())});
   }
 
   add = () => {
@@ -115,8 +108,15 @@ class App extends React.Component {
     } 
   }
 
-  ver = (p) => {
-    pelicula = this.state.data.filter(movie => movie.id === p)[0];
+  ver = async (p) => {
+    pelicula = await axios.get(`http://localhost:4000/api/v1/peliculas/${p}`)
+      .then(function (response) {
+        return response.data[0];
+      })
+      .catch(function (error) {
+        return error;
+      });
+    //pelicula = this.state.data.filter(movie => movie.id === p)[0];
     this.setState({show: 3});
   }
   
@@ -146,15 +146,5 @@ class App extends React.Component {
   }
 }
 
-/*function App() {
-  return (
-    <div>
-      This is my componenet: 
-      <Helloworld mytext="Hello Fazt" subtitile="expecto patronum"/> 
-      <Helloworld mytext="Hello Williams" subtitile="clase"/> 
-      <Helloworld mytext="Hola Mundo" subtitile="España"/> 
-    </div>
-  );
-}*/
 
 export default App;

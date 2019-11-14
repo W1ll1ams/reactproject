@@ -42,7 +42,7 @@ export default function ComplexGrid(props) {
   const classes = useStyles();
 
   return props.data.map(e =>
-    <div className={classes.root} key={e.id}>
+    <div className={classes.root} key={e._id}>
       <Paper id="hello" className={classes.paper}>
       <Grid container className= {classes.nav}>
         <ButtonBase id="imagen" className={classes.image}>
