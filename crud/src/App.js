@@ -7,7 +7,6 @@ import Ver from './components/ver.js'
 import axios from 'axios'
 
 var pelicula = {
-  id: "",
   titulo : "",
   description : "",
   director : "",
@@ -17,7 +16,6 @@ var pelicula = {
   done : false
 };
 
-var x = 4;
 var datos = [];
 class App extends React.Component {
   constructor(){
@@ -58,31 +56,44 @@ class App extends React.Component {
     }
   }
 
-   modPelicula(prmData){
-    let dataPelicula = JSON.parse(this.getData());
+  async modPelicula (prmData){
+    //let dataPelicula = JSON.parse(this.getData());
     
-    for (let i = 0; i < dataPelicula.length; i++) {
+    await axios.put('http://localhost:4000/api/v1/peliculas/update', {pelicula: prmData})
+      .then(function (response) {
+        return response;
+      })
+      .catch(function (error) {
+        return error;
+      });
+
+    /*for (let i = 0; i < dataPelicula.length; i++) {
       if (dataPelicula[i].id === prmData.id) {
         dataPelicula.splice(i,1,prmData);
       }
-    }
+    }*/
 
-    localStorage.setItem('data',JSON.stringify(dataPelicula));
-    this.setState({...this.state, data: this.getData()});
+    //localStorage.setItem('data',JSON.stringify(dataPelicula));
+    //await this.setState({...this.state, data: this.getData()});
   }
 
   addPelicula(prmData){
-    x++;
-    prmData=({...prmData, id:x});
-    let dataPelicula = JSON.parse(this.getData());
-    dataPelicula.push(prmData);
-
-    localStorage.setItem('data',JSON.stringify(dataPelicula));
+    
+    prmData=({...prmData});
+    return axios.post('http://localhost:4000/api/v1/peliculas/add', {pelicula: prmData})
+      .then(function (response) {
+        return response;
+      })
+      .catch(function (error) {
+        return error;
+      });
+    //let dataPelicula = JSON.parse(this.getData());
+    //dataPelicula.push(prmData);
+    //localStorage.setItem('data',JSON.stringify(dataPelicula));
   }
 
   add = () => {
     pelicula = {
-      id: "",
       titulo : "",
       description : "",
       director : "",
@@ -94,17 +105,36 @@ class App extends React.Component {
     this.setState({show: 1});
   }
 
-  mod = (p) => {
-    pelicula = this.state.data.filter(movie => movie.id === p)[0];
+  mod = async (p) => {
+    pelicula = await axios.get(`http://localhost:4000/api/v1/peliculas/${p}`)
+      .then(function (response) {
+        return response.data[0];
+      })
+      .catch(function (error) {
+        return error;
+      });
     this.setState({show: 2});
   }
 
-  del = (p) => {
-    pelicula = this.state.data.filter(movie => movie.id === p)[0];
+  del = async (p) => {
+    pelicula = await axios.get(`http://localhost:4000/api/v1/peliculas/${p}`)
+      .then(function (response) {
+        return response.data[0];
+      })
+      .catch(function (error) {
+        return error;
+      });
     if (window.confirm("¿Está seguro que desea eliminar " + pelicula.titulo + "?")) {
-      pelicula = this.state.data.filter(movie => movie.id !== p);
-      localStorage.setItem('data',JSON.stringify(pelicula));
-      this.setState({...this.state, data: JSON.parse(this.getData())});
+      axios.delete(`http://localhost:4000/api/v1/peliculas/del/${p}`)
+      .then(function (response) {
+        return response;
+      })
+      .catch(function (error) {
+        return error;
+      });
+      //pelicula = this.state.data.filter(movie => movie.id !== p);
+      //localStorage.setItem('data',JSON.stringify(pelicula));
+      //await this.setState({...this.state, data: this.getData()});
     } 
   }
 
