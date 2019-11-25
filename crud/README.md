@@ -1,4 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).<br>
+El proyecto consiste en CRUD de peliculas conectandose a una base de datos en mongo, a traves de apis en<br>
+express, utilizando redis para balancear la consulta de datos.
 
 ## Available Scripts
 
