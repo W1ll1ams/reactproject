@@ -16,6 +16,8 @@ var pelicula = {
   done : false
 };
 
+const URL_API = 'http://3.135.183.119:4000/api/v1/peliculas/';
+
 var datos = [];
 class App extends React.Component {
   constructor(){
@@ -33,7 +35,7 @@ class App extends React.Component {
   }
 
   getData() {
-    return axios.get('http://localhost:4000/api/v1/peliculas/')
+    return axios.get(URL_API)
       .then(function (response) {
         return response;
       })
@@ -59,7 +61,7 @@ class App extends React.Component {
   async modPelicula (prmData){
     //let dataPelicula = JSON.parse(this.getData());
     
-    await axios.put('http://localhost:4000/api/v1/peliculas/update', {pelicula: prmData})
+    await axios.put(`${URL_API}update`, {pelicula: prmData})
       .then(function (response) {
         return response;
       })
@@ -80,7 +82,7 @@ class App extends React.Component {
   addPelicula(prmData){
     
     prmData=({...prmData});
-    return axios.post('http://localhost:4000/api/v1/peliculas/add', {pelicula: prmData})
+    return axios.post(`${URL_API}add`, {pelicula: prmData})
       .then(function (response) {
         return response;
       })
@@ -106,7 +108,7 @@ class App extends React.Component {
   }
 
   mod = async (p) => {
-    pelicula = await axios.get(`http://localhost:4000/api/v1/peliculas/${p}`)
+    pelicula = await axios.get(`${URL_API}${p}`)
       .then(function (response) {
         return response.data[0];
       })
@@ -117,7 +119,7 @@ class App extends React.Component {
   }
 
   del = async (p) => {
-    pelicula = await axios.get(`http://localhost:4000/api/v1/peliculas/${p}`)
+    pelicula = await axios.get(`${URL_API}${p}`)
       .then(function (response) {
         return response.data[0];
       })
@@ -125,7 +127,7 @@ class App extends React.Component {
         return error;
       });
     if (window.confirm("¿Está seguro que desea eliminar " + pelicula.titulo + "?")) {
-      axios.delete(`http://localhost:4000/api/v1/peliculas/del/${p}`)
+      axios.delete(`${URL_API}del/${p}`)
       .then(function (response) {
         return response;
       })
@@ -139,7 +141,7 @@ class App extends React.Component {
   }
 
   ver = async (p) => {
-    pelicula = await axios.get(`http://localhost:4000/api/v1/peliculas/${p}`)
+    pelicula = await axios.get(`${URL_API}${p}`)
       .then(function (response) {
         return response.data[0];
       })
